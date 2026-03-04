@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://df0mutfp17aej"]
+
+[ext_resource type="Texture2D" uid="uid://exif2ffphdv0" path="res://entities/player/weapon/weapon.png" id="1_8k23w"]
+[ext_resource type="Script" uid="uid://dcaa53wlgo14q" path="res://entities/player/weapon/weapon.gd" id="1_tbj06"]
+
+[node name="Arrow_(gun)" type="Node2D" unique_id=94891996]
+script = ExtResource("1_tbj06")
+
+[node name="Arrow_sprite" type="Sprite2D" parent="." unique_id=1686099915]
+position = Vector2(18, 0)
+scale = Vector2(1.5, 1.5625)
+texture = ExtResource("1_8k23w")
+offset = Vector2(0, -0.5)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1921063024]
+position = Vector2(25, 0)

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cno5dlucjdgjp"]
+
+[ext_resource type="Script" uid="uid://bq2ubu6fn785j" path="res://entities/player/weapon/bullet/bullet.gd" id="1_qoapn"]
+[ext_resource type="Texture2D" uid="uid://d0d00ho0cpqph" path="res://entities/player/weapon/bullet/bullet.png" id="2_7epp4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7oki"]
+size = Vector2(10, 2)
+
+[node name="Bullet" type="Node2D" unique_id=726284935]
+script = ExtResource("1_qoapn")
+
+[node name="BulletOrange" type="Sprite2D" parent="." unique_id=1660664849]
+position = Vector2(0, -5.684342e-14)
+scale = Vector2(1.5, 0.87500006)
+texture = ExtResource("2_7epp4")
+
+[node name="Bullet_area" type="Area2D" parent="." unique_id=1088337302]
+light_mask = 0
+visibility_layer = 16
+collision_layer = 16
+collision_mask = 0
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Bullet_area" unique_id=1276121997]
+light_mask = 0
+visibility_layer = 16
+shape = SubResource("RectangleShape2D_v7oki")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1351506030]
+rect = Rect2(-26, -25, 52, 50)
+
+[connection signal="area_entered" from="Bullet_area" to="." method="_on_bullet_area_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

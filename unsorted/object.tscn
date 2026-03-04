@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dmpukvo7x7e3w"]
+
+[ext_resource type="Texture2D" uid="uid://qfi4qlqkfmp0" path="res://unsorted/object.png" id="1_l2ofb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pkda2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkda2"]
+size = Vector2(14, 14)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1536662626]
+disable_mode = 2
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_pkda2")
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 2.0
+
+[node name="Object" type="Sprite2D" parent="." unique_id=1198165557]
+texture = ExtResource("1_l2ofb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=35921755]
+light_mask = 2
+visibility_layer = 7
+shape = SubResource("RectangleShape2D_pkda2")

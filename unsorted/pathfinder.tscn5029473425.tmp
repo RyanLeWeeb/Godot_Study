@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bn2trsk1k1gr7"]
+
+[ext_resource type="Script" uid="uid://dh3xghprr457l" path="res://scripts/entities/pathfinder.gd" id="1_x0w5j"]
+[ext_resource type="Texture2D" uid="uid://ddgwi8grnev8m" path="res://resources/npc.png" id="2_x1xi7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0w5j"]
+radius = 7.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0w5j"]
+size = Vector2(16, 16)
+
+[node name="Pathfinder" type="CharacterBody2D" unique_id=489967581 groups=["Pathfinders"]]
+collision_mask = 7
+script = ExtResource("1_x0w5j")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=299397202]
+texture = ExtResource("2_x1xi7")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=246737313]
+visibility_layer = 7
+shape = SubResource("CircleShape2D_x0w5j")
+
+[node name="Navigation Node" type="Node2D" parent="." unique_id=597042813]
+
+[node name="NavTimer" type="Timer" parent="Navigation Node" unique_id=713506883]
+unique_name_in_owner = true
+wait_time = 0.1
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation Node" unique_id=1034209484]
+unique_name_in_owner = true
+path_postprocessing = 1
+simplify_path = true
+
+[node name="Hurtbox Node" type="Node" parent="." unique_id=1523255]
+
+[node name="Hurtbox" type="Area2D" parent="Hurtbox Node" unique_id=1206327550]
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="Hurtbox Node/Hurtbox" unique_id=1073846443]
+shape = SubResource("RectangleShape2D_x0w5j")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="Hitbox Node" type="Node" parent="." unique_id=785236429]
+
+[node name="Hitbox" type="Area2D" parent="Hitbox Node" unique_id=867369192]
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox Node/Hitbox" unique_id=804091686]
+
+[connection signal="timeout" from="Navigation Node/NavTimer" to="." method="_on_nav_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox Node/Hurtbox" to="." method="_on_area_2d_area_entered"]

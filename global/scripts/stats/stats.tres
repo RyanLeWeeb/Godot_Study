@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Stats" format=3 uid="uid://dp3vrdnaf741t"]
+
+[ext_resource type="Script" uid="uid://6y2g5jlver3t" path="res://global/scripts/stats/stats_manager.gd" id="1_gayj7"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_gayj7")
+experience = 100
+faction = 0
+metadata/_custom_type_script = "uid://6y2g5jlver3t"

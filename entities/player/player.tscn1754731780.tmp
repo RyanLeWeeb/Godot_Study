@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c803krd5rbv8b"]
+
+[ext_resource type="Texture2D" uid="uid://c6t1v5fu0v2ix" path="res://Entities/Player/player.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://de0w48eo2rmll" path="res://scripts/entities/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://df0mutfp17aej" path="res://scenes/arrow_(gun).tscn" id="3_lu8i8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 7.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu8i8"]
+size = Vector2(14, 14)
+
+[node name="Player" type="CharacterBody2D" unique_id=93122118 groups=["Players"]]
+visibility_layer = 5
+collision_mask = 7
+script = ExtResource("1_g2els")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=965846873]
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1383205293]
+visibility_layer = 7
+shape = SubResource("CircleShape2D_g2els")
+one_way_collision_margin = 0.0
+debug_color = Color(0, 0, 1, 0.41960785)
+
+[node name="Player_Camera" type="Camera2D" parent="." unique_id=1839959655]
+zoom = Vector2(2.5, 2.5)
+
+[node name="Weapon" parent="." unique_id=94891996 instance=ExtResource("3_lu8i8")]
+
+[node name="Hurtbox Node" type="Node" parent="." unique_id=360036946]
+
+[node name="Hurtbox" type="Area2D" parent="Hurtbox Node" unique_id=1573948706]
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="Hurtbox Node/Hurtbox" unique_id=1404277331]
+shape = SubResource("RectangleShape2D_lu8i8")
+debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="Hurt_Timer" type="Timer" parent="Hurtbox Node" unique_id=974831633]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[connection signal="area_entered" from="Hurtbox Node/Hurtbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Hurtbox Node/Hurt_Timer" to="." method="_on_hurt_timer_timeout"]
