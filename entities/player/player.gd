@@ -3,15 +3,17 @@ class_name Player
 
 
 
-const SPEED = 100 # pixels
-const PUSH_FORCE = 2
+const SPEED: int = 100 # pixels
+const PUSH_FORCE: int = 2
 
 
-@export var health: int = 1
-@export var stats : Stats
+@export var stats: Stats
 var was_attacked: bool = false
 
 
+
+func _ready():
+	stats.health_depleted.connect(_on_health_depleted)
 
 func _physics_process(_delta):
 	var input_vec = Vector2.ZERO
@@ -38,14 +40,11 @@ func _physics_process(_delta):
 # - ↑ Moving correctly ↑
 # - ↓ Health behaviour ↓
 
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.get_parent().has_method("has_hit"):
-		var node = area.get_parent() as Node
-		health -= node.base_damage
-		if health <= 0: 
-			hide() # Simply hides the character
+func take_damage(damage: int) -> void:
+	var new_health = stats.health - damage
+	stats._on_health_changed(new_health)
 
-func _on_hurtbox_timer_timeout() -> void:
-	was_attacked = false
+func _on_health_depleted() -> void:
+	hide()
 
 # - ↑ Health behaviour ↑

@@ -2,24 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://c6t1v5fu0v2ix" path="res://entities/player/player.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://de0w48eo2rmll" path="res://entities/player/player.gd" id="1_g2els"]
-[ext_resource type="Script" uid="uid://6y2g5jlver3t" path="res://global/scripts/stats/stats_manager.gd" id="2_fkugw"]
 [ext_resource type="PackedScene" uid="uid://df0mutfp17aej" path="res://entities/player/weapon/weapon.tscn" id="3_lu8i8"]
-[ext_resource type="Script" uid="uid://pcy4n48awd01" path="res://global/scripts/boxes/hurtbox.gd" id="4_bls4j"]
+[ext_resource type="Script" uid="uid://pcy4n48awd01" path="res://global/scripts/hurtboxes/hurtbox.gd" id="4_bls4j"]
 
-[sub_resource type="Resource" id="Resource_8fjmc"]
-script = ExtResource("2_fkugw")
-metadata/_custom_type_script = "uid://6y2g5jlver3t"
+[sub_resource type="Resource" id="Resource_sglur"]
+metadata/__load_path__ = "res://global/scripts/stats.res"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 7.9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkugw"]
+size = Vector2(10, 10)
 
 [node name="Player" type="CharacterBody2D" unique_id=93122118 groups=["Players"]]
 visibility_layer = 5
 collision_mask = 7
 script = ExtResource("1_g2els")
-stats = SubResource("Resource_8fjmc")
+health = null
+stats = SubResource("Resource_sglur")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=965846873]
 texture = ExtResource("1_3vyb7")
@@ -36,13 +36,9 @@ zoom = Vector2(2.5, 2.5)
 [node name="Weapon" parent="." unique_id=94891996 instance=ExtResource("3_lu8i8")]
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1146565632]
-collision_layer = 0
-collision_mask = 0
 script = ExtResource("4_bls4j")
 metadata/_custom_type_script = "uid://pcy4n48awd01"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=131012110]
 shape = SubResource("RectangleShape2D_fkugw")
 debug_color = Color(0, 1, 0, 0.41960785)
-
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

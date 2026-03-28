@@ -1,5 +1,6 @@
-stats.tres is the resource
+Stats Resource
 
-it was changed to ".res" to diminish saving time
+NOTE: "stats.tres" is the resource
 
-riga variata
+UNKNOWN DATE: it was changed to ".res" to diminish project saving time.
+UNKNOWN DATE: it was changed back to ".tres", and the effect remained.
