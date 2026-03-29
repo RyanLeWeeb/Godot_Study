@@ -38,15 +38,12 @@ shape = SubResource("CircleShape2D_x0w5j")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation Node" unique_id=1034209484]
 unique_name_in_owner = true
-path_desired_distance = 3.0
-target_desired_distance = 20.0
 path_postprocessing = 1
 simplify_path = true
 
 [node name="NavTimer" type="Timer" parent="Navigation Node" unique_id=713506883]
 unique_name_in_owner = true
 wait_time = 0.1
-autostart = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=134996170]
 collision_layer = 0
@@ -59,17 +56,13 @@ shape = SubResource("RectangleShape2D_hje5o")
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=893924768]
-visible = false
 script = ExtResource("5_hje5o")
 metadata/_custom_type_script = "uid://pcy4n48awd01"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=338884225]
-visible = false
 light_mask = 16
 visibility_layer = 0
 shape = SubResource("RectangleShape2D_vlaea")
 debug_color = Color(0.24201298, 0.6330946, 0.19950184, 0.41960785)
 
 [connection signal="timeout" from="Navigation Node/NavTimer" to="." method="_on_nav_timer_timeout"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

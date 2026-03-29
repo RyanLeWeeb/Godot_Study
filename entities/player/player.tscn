@@ -8,6 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_8fjmc"]
 script = ExtResource("2_fkugw")
+faction = 0
 metadata/_custom_type_script = "uid://6y2g5jlver3t"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
