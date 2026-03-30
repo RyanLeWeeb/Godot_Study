@@ -1,22 +1,23 @@
 # Security Policy
 
 ## Supported Versions
+Only issues regarding the following versions will be accepted and reviewed.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-Template:
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 1.0.0   | :white_check_mark: |
+| <1.0.0  | :x:                |
 
 ## Reporting a Vulnerability
+Please do not report security vulnerabilities through public GitHub issues.
 
-Use this section to tell people how to report a vulnerability.
+Instead, please use the following method:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+**GitHub Private Vulnerability Reporting:** Go to the "Security" tab of this repository and select "Vulnerability reporting" to submit a report privately.
+
+# What to expect
+**Acknowledgment:** You will receive a response within 3 business days confirming receipt of your report.
+
+**Status Updates:** I will keep you informed of the progress as I work toward a resolution.
+
+**Disclosure:** Once a fix is released, I will coordinate with you to decide how to credit your discovery and when to publicly disclose the fix.
