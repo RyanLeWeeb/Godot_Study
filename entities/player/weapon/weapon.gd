@@ -1,6 +1,6 @@
 extends Node2D
 
-const BULLET = preload("res://entities/player/weapon/bullet/bullet.tscn")
+const BULLET: PackedScene = preload("res://entities/player/weapon/bullet/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
 

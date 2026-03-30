@@ -15,7 +15,6 @@ func _ready() -> void:
 	stats = stats.duplicate()
 	stats.health_depleted.connect(_on_health_depleted)
 	
-	# FIX: Set the initial target so the agent has a path immediately
 	if goal:
 		%NavigationAgent2D.target_position = goal.global_position
 

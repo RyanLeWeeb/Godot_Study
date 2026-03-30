@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://6y2g5jlver3t" path="res://global/scripts/stats/stats_manager.gd" id="2_fkugw"]
 [ext_resource type="PackedScene" uid="uid://df0mutfp17aej" path="res://entities/player/weapon/weapon.tscn" id="3_lu8i8"]
 [ext_resource type="Script" uid="uid://pcy4n48awd01" path="res://global/scripts/boxes/hurtbox.gd" id="4_bls4j"]
+[ext_resource type="PackedScene" uid="uid://c1aavveo4rirx" path="res://entities/player/user_interface/MainUI.tscn" id="6_8fjmc"]
 
 [sub_resource type="Resource" id="Resource_8fjmc"]
+resource_local_to_scene = true
 script = ExtResource("2_fkugw")
 faction = 0
 metadata/_custom_type_script = "uid://6y2g5jlver3t"
@@ -45,5 +47,16 @@ metadata/_custom_type_script = "uid://pcy4n48awd01"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=131012110]
 shape = SubResource("RectangleShape2D_fkugw")
 debug_color = Color(0, 1, 0, 0.41960785)
+
+[node name="MainUi" parent="." unique_id=452711068 instance=ExtResource("6_8fjmc")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -230.0
+offset_top = -129.0
+offset_right = -230.0
+offset_bottom = -129.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

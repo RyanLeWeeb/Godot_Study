@@ -8,18 +8,18 @@ friction = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3wuo"]
 size = Vector2(10.875, 10.875)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1286779390]
 collision_layer = 2
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_v3wuo")
 gravity_scale = 0.0
 lock_rotation = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=524940748]
 scale = Vector2(0.08984375, 0.08984375)
 texture = ExtResource("1_v3wuo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297465168]
 light_mask = 2
 visibility_layer = 7
 shape = SubResource("RectangleShape2D_v3wuo")

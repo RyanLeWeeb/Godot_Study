@@ -11,4 +11,5 @@ func _process(delta: float) -> void:
 func has_hit() -> int:
 	if stats:
 		return stats.attack
-	return 10 # Default fallback damage
+	return 0 # Deal no damage if bullet didn't have stats;
+			 # error message is sent from hurtbox
