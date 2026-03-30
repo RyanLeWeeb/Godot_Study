@@ -5,8 +5,8 @@ Only issues regarding the following versions will be accepted and reviewed.
 
 | Version | Supported |
 | ------- | :-------: |
-| >= 1.0.0| ✅        |
-| < 1.0.0 | ❌        |
+| >= 0.0.1| ✅        |
+| < 0.0.0 | ❌        |
 
 ## Reporting a Vulnerability
 **Please do not report security vulnerabilities through public GitHub issues.**
