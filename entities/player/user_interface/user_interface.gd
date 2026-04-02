@@ -2,11 +2,21 @@ extends Control
 
 
 var pathfinder: CharacterBody2D = null # found in the _ready() func
+var player: CharacterBody2D = null # found in the _ready() func
 var nav_agent: NavigationAgent2D = null # found in the _ready() func
 @onready var debug_button: Button = %DebugButton
-
+@onready var health_bar: ProgressBar = %HealthBar
+@onready var health_label: Label = %HealthBar/HealthLabel
 
 func _ready():
+	# Wait until the very end of the current frame
+	await get_tree().process_frame 
+	player = get_tree().get_first_node_in_group("Players") as CharacterBody2D
+	player.stats.health_changed.connect(_on_health_changed)
+	
+	health_bar.value = player.stats.health
+	health_label.text = "Health: " + str(player.stats.health) + " / " + str(player.stats.max_health)
+	
 	# Ask the tree for the first node in the "pathfinders" group
 	pathfinder = get_tree().get_first_node_in_group("Pathfinders") as CharacterBody2D
 	
@@ -38,3 +48,10 @@ func _process(_delta: float) -> void:
 		debug_button.disabled = false
 	
 	# TODO: make the system look for pathfinders after amount of time has elapsed
+
+func _on_health_changed(new_health: int) -> void:
+	if health_bar:
+		health_bar.value = new_health
+	if health_label:
+		var max_hp = player.stats.max_health
+		health_label.text = "Health: " + str(new_health) + " / " + str(max_hp)

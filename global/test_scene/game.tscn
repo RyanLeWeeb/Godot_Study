@@ -29,8 +29,6 @@ terrain_set_0/mode = 0
 navigation_layer_0/layers = 1
 sources/3 = SubResource("TileSetAtlasSource_k0juu")
 
-[sub_resource type="PackedScene" id="PackedScene_pfrms"]
-
 [sub_resource type="Resource" id="Resource_pfrms"]
 resource_local_to_scene = true
 script = ExtResource("3_se4km")
@@ -56,7 +54,6 @@ tile_set = SubResource("TileSet_71j4m")
 [node name="Player" parent="Entities" unique_id=1861957126 instance=ExtResource("2_wxyfr")]
 unique_name_in_owner = true
 position = Vector2(52, -11)
-bullet_scene = SubResource("PackedScene_pfrms")
 stats = SubResource("Resource_pfrms")
 
 [node name="Pathfinder" parent="Entities" unique_id=2057305832 node_paths=PackedStringArray("goal") instance=ExtResource("5_ulb7l")]
